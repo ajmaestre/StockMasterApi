@@ -1,14 +1,14 @@
-package com.engineerds.stockmaster.service;
+package src.main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.engineerds.stockmaster.model.Categoria;
-import com.engineerds.stockmaster.model.Producto;
-import com.engineerds.stockmaster.repository.DatabaseConnection;
-import com.engineerds.stockmaster.repository.ProductoRepositorio;
+import src.main.java.com.engineerds.stockmaster.model.Categoria;
+import src.main.java.com.engineerds.stockmaster.model.Producto;
+import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import src.main.java.com.engineerds.stockmaster.repository.ProductoRepositorio;
 
 
 public class ProductoService {

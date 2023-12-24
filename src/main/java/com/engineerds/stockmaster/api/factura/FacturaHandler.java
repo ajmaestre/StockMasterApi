@@ -1,4 +1,4 @@
-package main.java.com.engineerds.stockmaster.api.factura;
+package src.main.java.com.engineerds.stockmaster.api.factura;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,14 +11,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import main.java.com.engineerds.stockmaster.model.Detalle;
-import main.java.com.engineerds.stockmaster.model.Factura;
-import main.java.com.engineerds.stockmaster.model.Facturas;
-import main.java.com.engineerds.stockmaster.model.Response;
-import main.java.com.engineerds.stockmaster.service.FacturaService;
-import main.java.com.engineerds.stockmaster.utilities.ExtractBody;
-import main.java.com.engineerds.stockmaster.utilities.ExtractParams;
-import main.java.com.engineerds.stockmaster.utilities.HandleResponse;
+import src.main.java.com.engineerds.stockmaster.model.Detalle;
+import src.main.java.com.engineerds.stockmaster.model.Factura;
+import src.main.java.com.engineerds.stockmaster.model.Facturas;
+import src.main.java.com.engineerds.stockmaster.model.Response;
+import src.main.java.com.engineerds.stockmaster.service.FacturaService;
+import src.main.java.com.engineerds.stockmaster.utilities.ExtractBody;
+import src.main.java.com.engineerds.stockmaster.utilities.ExtractParams;
+import src.main.java.com.engineerds.stockmaster.utilities.HandleResponse;
 
 
 public class FacturaHandler implements HttpHandler {

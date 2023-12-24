@@ -1,15 +1,15 @@
-package com.engineerds.stockmaster.service;
+package src.main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.engineerds.stockmaster.model.Detalle;
-import com.engineerds.stockmaster.model.Factura;
-import com.engineerds.stockmaster.model.Producto;
-import com.engineerds.stockmaster.repository.DatabaseConnection;
-import com.engineerds.stockmaster.repository.DetalleRepositorio;
+import src.main.java.com.engineerds.stockmaster.model.Detalle;
+import src.main.java.com.engineerds.stockmaster.model.Factura;
+import src.main.java.com.engineerds.stockmaster.model.Producto;
+import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import src.main.java.com.engineerds.stockmaster.repository.DetalleRepositorio;
 
 
 public class DetalleService {

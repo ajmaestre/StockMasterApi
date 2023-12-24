@@ -1,4 +1,4 @@
-package main.java.com.engineerds.stockmaster.api.almacen;
+package src.main.java.com.engineerds.stockmaster.api.almacen;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -10,12 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import main.java.com.engineerds.stockmaster.model.Almacen;
-import main.java.com.engineerds.stockmaster.model.Response;
-import main.java.com.engineerds.stockmaster.service.AlmacenService;
-import main.java.com.engineerds.stockmaster.utilities.ExtractBody;
-import main.java.com.engineerds.stockmaster.utilities.ExtractParams;
-import main.java.com.engineerds.stockmaster.utilities.HandleResponse;
+import src.main.java.com.engineerds.stockmaster.model.Almacen;
+import src.main.java.com.engineerds.stockmaster.model.Response;
+import src.main.java.com.engineerds.stockmaster.service.AlmacenService;
+import src.main.java.com.engineerds.stockmaster.utilities.ExtractBody;
+import src.main.java.com.engineerds.stockmaster.utilities.ExtractParams;
+import src.main.java.com.engineerds.stockmaster.utilities.HandleResponse;
 
 public class AlmacenHandler implements HttpHandler {
 

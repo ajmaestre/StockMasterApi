@@ -1,4 +1,4 @@
-package com.engineerds.stockmaster.service;
+package src.main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,12 +6,12 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import com.engineerds.stockmaster.model.Almacen;
-import com.engineerds.stockmaster.model.Detalle;
-import com.engineerds.stockmaster.model.Factura;
-import com.engineerds.stockmaster.model.Persona;
-import com.engineerds.stockmaster.repository.DatabaseConnection;
-import com.engineerds.stockmaster.repository.FacturaRepositorio;
+import src.main.java.com.engineerds.stockmaster.model.Almacen;
+import src.main.java.com.engineerds.stockmaster.model.Detalle;
+import src.main.java.com.engineerds.stockmaster.model.Factura;
+import src.main.java.com.engineerds.stockmaster.model.Persona;
+import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import src.main.java.com.engineerds.stockmaster.repository.FacturaRepositorio;
 
 
 public class FacturaService {

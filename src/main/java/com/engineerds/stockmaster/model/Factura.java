@@ -1,4 +1,4 @@
-package com.engineerds.stockmaster.model;
+package src.main.java.com.engineerds.stockmaster.model;
 
 import java.sql.Timestamp;
 

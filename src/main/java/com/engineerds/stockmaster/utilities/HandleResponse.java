@@ -1,9 +1,9 @@
-package com.engineerds.stockmaster.utilities;
+package src.main.java.com.engineerds.stockmaster.utilities;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.engineerds.stockmaster.model.Response;
+import src.main.java.com.engineerds.stockmaster.model.Response;
 
 public class HandleResponse {
 	

@@ -1,4 +1,4 @@
-package com.engineerds.stockmaster.repository;
+package src.main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
-import com.engineerds.stockmaster.model.Factura;
+import src.main.java.com.engineerds.stockmaster.model.Factura;
 
 public class FacturaRepositorio extends BaseRepository<Factura>{
 

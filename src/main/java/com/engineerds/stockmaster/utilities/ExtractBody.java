@@ -1,4 +1,4 @@
-package com.engineerds.stockmaster.utilities;
+package src.main.java.com.engineerds.stockmaster.utilities;
 
 import java.io.BufferedReader;
 import java.io.IOException;

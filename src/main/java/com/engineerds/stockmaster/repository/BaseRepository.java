@@ -1,4 +1,4 @@
-package com.engineerds.stockmaster.repository;
+package src.main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
