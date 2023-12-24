@@ -1,11 +1,11 @@
-package main.java.com.engineerds.stockmaster.repository;
+package com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import main.java.com.engineerds.stockmaster.model.Persona;
+import com.engineerds.stockmaster.model.Persona;
 
 public class PersonaRepositorio extends BaseRepository<Persona>{
 

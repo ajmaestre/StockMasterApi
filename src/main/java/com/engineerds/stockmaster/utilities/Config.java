@@ -1,4 +1,4 @@
-package main.java.com.engineerds.stockmaster.utilities;
+package com.engineerds.stockmaster.utilities;
 
 public class Config {
 	

@@ -1,13 +1,13 @@
-package main.java.com.engineerds.stockmaster.service;
+package com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import main.java.com.engineerds.stockmaster.model.Usuario;
-import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
-import main.java.com.engineerds.stockmaster.repository.UsuarioRepositorio;
+import com.engineerds.stockmaster.model.Usuario;
+import com.engineerds.stockmaster.repository.DatabaseConnection;
+import com.engineerds.stockmaster.repository.UsuarioRepositorio;
 
 
 public class UsuarioService {

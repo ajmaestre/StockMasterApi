@@ -1,10 +1,10 @@
-package main.java.com.engineerds.stockmaster.repository;
+package com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import main.java.com.engineerds.stockmaster.utilities.Config;
+import com.engineerds.stockmaster.utilities.Config;
 
 public class DatabaseConnection {
 	

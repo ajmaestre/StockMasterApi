@@ -1,13 +1,13 @@
-package main.java.com.engineerds.stockmaster.service;
+package com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import main.java.com.engineerds.stockmaster.model.Persona;
-import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
-import main.java.com.engineerds.stockmaster.repository.PersonaRepositorio;
+import com.engineerds.stockmaster.model.Persona;
+import com.engineerds.stockmaster.repository.DatabaseConnection;
+import com.engineerds.stockmaster.repository.PersonaRepositorio;
 
 
 public class PersonaService {

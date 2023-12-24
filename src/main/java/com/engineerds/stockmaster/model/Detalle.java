@@ -1,4 +1,4 @@
-package main.java.com.engineerds.stockmaster.model;
+package com.engineerds.stockmaster.model;
 
 public class Detalle {
 

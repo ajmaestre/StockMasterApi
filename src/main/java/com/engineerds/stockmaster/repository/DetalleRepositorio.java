@@ -1,11 +1,11 @@
-package main.java.com.engineerds.stockmaster.repository;
+package com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import main.java.com.engineerds.stockmaster.model.Detalle;
+import com.engineerds.stockmaster.model.Detalle;
 
 public class DetalleRepositorio extends BaseRepository<Detalle>{
 
