@@ -1,11 +1,11 @@
-package com.engineerds.stockmaster;
+package src.main.java.com.engineerds.stockmaster;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import com.sun.net.httpserver.HttpServer;
 
-import com.engineerds.stockmaster.api.Routes;
+import src.main.java.com.engineerds.stockmaster.api.Routes;
 
 public class Main {
 
