@@ -13,4 +13,4 @@ RUN javac -cp ".:/usr/src/app/lib/*" -d /usr/src/app/classes src/main/java/com/e
 WORKDIR /usr/src/app/classes
 
 # Comando para ejecutar la aplicación
-CMD ["java", "-cp", ".:/usr/src/app/lib/*", "com.engineerds.stockmaster.Main"]
+CMD ["java", "-cp", ".:/usr/src/app/lib/*", "src.main.java.com.engineerds.stockmaster.Main"]
