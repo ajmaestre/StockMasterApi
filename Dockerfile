@@ -1,13 +1,16 @@
 FROM openjdk:latest
 
+# Establecer el directorio de trabajo en el contenedor
 WORKDIR /usr/src/app
 
-# Copiar el código fuente
+# Copiar el código fuente y las bibliotecas externas
 COPY . .
 
-# Copiar las librerías externas al contenedor
-COPY lib/*.jar /usr/src/app/lib/
+# Compilar el código fuente (compila todas las clases)
+RUN javac -cp ".:/usr/src/app/lib/*" -d /usr/src/app/classes src/main/java/com/engineerds/stockmaster/*.java
 
-RUN javac src/main/java/com/engineerds/stockmaster/Main.java
+# Establecer el directorio para las clases compiladas
+WORKDIR /usr/src/app/classes
 
-CMD ["java", "-cp", ".:/usr/src/app/lib/*", "Main"]
+# Comando para ejecutar la aplicación
+CMD ["java", "-cp", ".:/usr/src/app/lib/*", "com.engineerds.stockmaster.Main"]
