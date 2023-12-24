@@ -8,6 +8,6 @@ COPY . .
 # Copiar las librerías externas al contenedor
 COPY lib/*.jar /usr/src/app/lib/
 
-RUN javac Main.java
+RUN javac src/main/java/com/engineerds/stockmaster/Main.java
 
 CMD ["java", "-cp", ".:/usr/src/app/lib/*", "Main"]
