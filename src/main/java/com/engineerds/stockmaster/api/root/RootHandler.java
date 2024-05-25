@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.api.root;
+package main.java.com.engineerds.stockmaster.api.root;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import src.main.java.com.engineerds.stockmaster.model.Response;
+import main.java.com.engineerds.stockmaster.model.Response;
 
 public class RootHandler implements HttpHandler {
 	

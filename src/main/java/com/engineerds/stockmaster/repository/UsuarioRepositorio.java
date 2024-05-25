@@ -1,11 +1,11 @@
-package src.main.java.com.engineerds.stockmaster.repository;
+package main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import src.main.java.com.engineerds.stockmaster.model.Usuario;
+import main.java.com.engineerds.stockmaster.model.Usuario;
 
 public class UsuarioRepositorio extends BaseRepository<Usuario>{
 	
@@ -57,7 +57,7 @@ public class UsuarioRepositorio extends BaseRepository<Usuario>{
 
 	@Override
 	public ResultSet Get(Connection conexion, String tabla, int id) {
-		String query = "SELECT * FROM " + tabla + " WHERE idUsuario = " + id;
+		String query = "SELECT * FROM " + tabla + " WHERE id_usuario = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -120,7 +120,7 @@ public class UsuarioRepositorio extends BaseRepository<Usuario>{
 
 	@Override
 	public int Delete(Connection conexion, String tabla, int id) {
-		String query = "DELETE FROM " + tabla + " WHERE idUsuario = " + id;
+		String query = "DELETE FROM " + tabla + " WHERE id_usuario = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -139,7 +139,7 @@ public class UsuarioRepositorio extends BaseRepository<Usuario>{
 				"nombre = '" + data.getNombre() + "', "
 						+ "clave = '" + data.getClave() + "', "
 						+ "tipo = '" + data.getTipo() + "'"
-								+ "WHERE idUsuario = " + id;
+								+ "WHERE id_usuario = " + id;
 		Statement stmt;
 		int result;
 		try {

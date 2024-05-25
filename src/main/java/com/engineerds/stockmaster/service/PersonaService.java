@@ -1,13 +1,13 @@
-package src.main.java.com.engineerds.stockmaster.service;
+package main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import src.main.java.com.engineerds.stockmaster.model.Persona;
-import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
-import src.main.java.com.engineerds.stockmaster.repository.PersonaRepositorio;
+import main.java.com.engineerds.stockmaster.model.Persona;
+import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import main.java.com.engineerds.stockmaster.repository.PersonaRepositorio;
 
 
 public class PersonaService {
@@ -28,7 +28,7 @@ public class PersonaService {
 			personas.clear();
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -53,7 +53,7 @@ public class PersonaService {
 			personas.clear();
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -78,7 +78,7 @@ public class PersonaService {
 			personas.clear();
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -103,7 +103,7 @@ public class PersonaService {
 			personas.clear();
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -128,7 +128,7 @@ public class PersonaService {
 			personas.clear();
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -153,7 +153,7 @@ public class PersonaService {
 			personas.clear();		
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -178,7 +178,7 @@ public class PersonaService {
 			personas.clear();
 			while(result.next()) {
 				persona = new Persona();
-				persona.setIdPersona(result.getInt("idPersona"));
+				persona.setIdPersona(result.getInt("id_persona"));
 				persona.setNombre(result.getString("nombre"));
 				persona.setDireccion(result.getString("direccion"));
 				persona.setTelefono(result.getString("telefono"));
@@ -202,7 +202,7 @@ public class PersonaService {
 		try {
 			result.next();
 			persona = new Persona();
-			persona.setIdPersona(result.getInt("idPersona"));
+			persona.setIdPersona(result.getInt("id_persona"));
 			persona.setNombre(result.getString("nombre"));
 			persona.setDireccion(result.getString("direccion"));
 			persona.setTelefono(result.getString("telefono"));
@@ -224,7 +224,7 @@ public class PersonaService {
 		try {
 			result.next();
 			persona = new Persona();
-			persona.setIdPersona(result.getInt("idPersona"));
+			persona.setIdPersona(result.getInt("id_persona"));
 			persona.setNombre(result.getString("nombre"));
 			persona.setDireccion(result.getString("direccion"));
 			persona.setTelefono(result.getString("telefono"));

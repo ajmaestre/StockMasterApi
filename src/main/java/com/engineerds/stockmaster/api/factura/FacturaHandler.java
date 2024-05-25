@@ -1,7 +1,8 @@
-package src.main.java.com.engineerds.stockmaster.api.factura;
+package main.java.com.engineerds.stockmaster.api.factura;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLDecoder;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,14 +12,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import src.main.java.com.engineerds.stockmaster.model.Detalle;
-import src.main.java.com.engineerds.stockmaster.model.Factura;
-import src.main.java.com.engineerds.stockmaster.model.Facturas;
-import src.main.java.com.engineerds.stockmaster.model.Response;
-import src.main.java.com.engineerds.stockmaster.service.FacturaService;
-import src.main.java.com.engineerds.stockmaster.utilities.ExtractBody;
-import src.main.java.com.engineerds.stockmaster.utilities.ExtractParams;
-import src.main.java.com.engineerds.stockmaster.utilities.HandleResponse;
+import main.java.com.engineerds.stockmaster.model.Detalle;
+import main.java.com.engineerds.stockmaster.model.Factura;
+import main.java.com.engineerds.stockmaster.model.Facturas;
+import main.java.com.engineerds.stockmaster.model.Response;
+import main.java.com.engineerds.stockmaster.service.FacturaService;
+import main.java.com.engineerds.stockmaster.utilities.ExtractBody;
+import main.java.com.engineerds.stockmaster.utilities.ExtractParams;
+import main.java.com.engineerds.stockmaster.utilities.HandleResponse;
 
 
 public class FacturaHandler implements HttpHandler {
@@ -49,7 +50,7 @@ public class FacturaHandler implements HttpHandler {
         } else if (path.startsWith("/factura/byid")) {
             get(exchange);
         } else if (path.startsWith("/factura/venta/bydate")) {
-        	getvVentasByDate(exchange);
+        	getVentasByDate(exchange);
         } else if (path.startsWith("/factura/compra/bydate")) {
         	getComprasByDate(exchange);
         } else if (path.startsWith("/factura/save")) {
@@ -66,10 +67,10 @@ public class FacturaHandler implements HttpHandler {
             String json = this.objectMapper.writeValueAsString(facturas);
             sendResponse(exchange, json);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        	System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir la lista de facturas a formato Json");
         } catch (Exception e) {
-			e.printStackTrace();
+        	System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al obtener la lista de facturas");
 		}
     }
@@ -81,10 +82,10 @@ public class FacturaHandler implements HttpHandler {
             String json = this.objectMapper.writeValueAsString(facturas);
             sendResponse(exchange, json);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        	System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir la lista a formato Json");
         } catch (Exception e) {
-			e.printStackTrace();
+        	System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al obtener la lista");
 		}
     }
@@ -96,10 +97,10 @@ public class FacturaHandler implements HttpHandler {
             String json = this.objectMapper.writeValueAsString(facturas);
             sendResponse(exchange, json);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        	System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir la lista a formato Json");
         } catch (Exception e) {
-			e.printStackTrace();
+        	System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al obtener la lista");
 		}
     }
@@ -108,33 +109,35 @@ public class FacturaHandler implements HttpHandler {
     	try {
     		this.queryParams = ExtractParams.getParams(exchange.getRequestURI().getQuery());
     		int id = Integer.parseInt(this.queryParams.get("id"));
-    		factura = facturaService.getFactura(id);
+    		detalleFactura = facturaService.getFacturaDetalle(id);
     		objectMapper = new ObjectMapper();
-            String json = this.objectMapper.writeValueAsString(factura);
+            String json = this.objectMapper.writeValueAsString(detalleFactura);
             sendResponse(exchange, json);
 		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir la factura a formato Json");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al encontrar la factura");
 		}
     }
     
-    private void getvVentasByDate(HttpExchange exchange) throws IOException {
+    private void getVentasByDate(HttpExchange exchange) throws IOException {
     	try {
     		this.queryParams = ExtractParams.getParams(exchange.getRequestURI().getQuery());
-    		String dateInit = this.queryParams.get("dateInit");
-    		String dateEnd = this.queryParams.get("dateEnd");
+    		String encodedDateInit = this.queryParams.get("dateInit");
+    		String encodedDateEnd = this.queryParams.get("dateEnd");
+    		String dateInit = URLDecoder.decode(encodedDateInit, "UTF-8");
+            String dateEnd = URLDecoder.decode(encodedDateEnd, "UTF-8");
     		facturas = facturaService.getVentasByDate(Timestamp.valueOf(dateInit), Timestamp.valueOf(dateEnd));
     		objectMapper = new ObjectMapper();
             String json = this.objectMapper.writeValueAsString(facturas);
             sendResponse(exchange, json);
 		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir la factura a formato Json");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al encontrar la factura");
 		}
     }
@@ -142,17 +145,19 @@ public class FacturaHandler implements HttpHandler {
     private void getComprasByDate(HttpExchange exchange) throws IOException {
     	try {
     		this.queryParams = ExtractParams.getParams(exchange.getRequestURI().getQuery());
-    		String dateInit = this.queryParams.get("dateInit");
-    		String dateEnd = this.queryParams.get("dateEnd");
+    		String encodedDateInit = this.queryParams.get("dateInit");
+    		String encodedDateEnd = this.queryParams.get("dateEnd");
+    		String dateInit = URLDecoder.decode(encodedDateInit, "UTF-8");
+            String dateEnd = URLDecoder.decode(encodedDateEnd, "UTF-8");
     		facturas = facturaService.getComprasByDate(Timestamp.valueOf(dateInit), Timestamp.valueOf(dateEnd));
     		objectMapper = new ObjectMapper();
             String json = this.objectMapper.writeValueAsString(facturas);
             sendResponse(exchange, json);
 		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir la factura a formato Json");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al encontrar la factura");
 		}
     }
@@ -167,10 +172,10 @@ public class FacturaHandler implements HttpHandler {
             int res = facturaService.guardarFactura(factura, detalles);
             sendResponse(exchange, HandleResponse.response(res));
 		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al convertir el registro a formato Json");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e); 
             sendErrorResponse(exchange, 500, "Error al registrar el registro");
 		}
     }

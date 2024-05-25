@@ -1,13 +1,13 @@
-package src.main.java.com.engineerds.stockmaster.service;
+package main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import src.main.java.com.engineerds.stockmaster.model.Usuario;
-import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
-import src.main.java.com.engineerds.stockmaster.repository.UsuarioRepositorio;
+import main.java.com.engineerds.stockmaster.model.Usuario;
+import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import main.java.com.engineerds.stockmaster.repository.UsuarioRepositorio;
 
 
 public class UsuarioService {
@@ -28,7 +28,7 @@ public class UsuarioService {
 			usuarios.clear();
 			while(result.next()) {
 				usuario = new Usuario();
-				usuario.setIdUsuario(result.getInt("idUsuario"));
+				usuario.setIdUsuario(result.getInt("id_usuario"));
 				usuario.setNombre(result.getString("nombre"));
 				usuario.setClave(result.getString("clave"));
 				usuario.setTipo(result.getString("tipo"));
@@ -51,7 +51,7 @@ public class UsuarioService {
 			usuarios.clear();
 			while(result.next()) {
 				usuario = new Usuario();
-				usuario.setIdUsuario(result.getInt("idUsuario"));
+				usuario.setIdUsuario(result.getInt("id_usuario"));
 				usuario.setNombre(result.getString("nombre"));
 				usuario.setClave(result.getString("clave"));
 				usuario.setTipo(result.getString("tipo"));
@@ -74,7 +74,7 @@ public class UsuarioService {
 			usuarios.clear();
 			while(result.next()) {
 				usuario = new Usuario();
-				usuario.setIdUsuario(result.getInt("idUsuario"));
+				usuario.setIdUsuario(result.getInt("id_usuario"));
 				usuario.setNombre(result.getString("nombre"));
 				usuario.setClave(result.getString("clave"));
 				usuario.setTipo(result.getString("tipo"));
@@ -96,7 +96,7 @@ public class UsuarioService {
 		try {	
 			result.next();
 			usuario = new Usuario();
-			usuario.setIdUsuario(result.getInt("idUsuario"));
+			usuario.setIdUsuario(result.getInt("id_usuario"));
 			usuario.setNombre(result.getString("nombre"));
 			usuario.setClave(result.getString("clave"));
 			usuario.setTipo(result.getString("tipo"));	
@@ -138,7 +138,7 @@ public class UsuarioService {
 			usuarios.clear();
 			while(result.next()) {
 				usuario = new Usuario();
-				usuario.setIdUsuario(result.getInt("idUsuario"));
+				usuario.setIdUsuario(result.getInt("id_usuario"));
 				usuario.setNombre(result.getString("nombre"));
 				usuario.setClave(result.getString("clave"));
 				usuario.setTipo(result.getString("tipo"));
@@ -161,7 +161,7 @@ public class UsuarioService {
 			usuarios.clear();
 			while(result.next()) {
 				usuario = new Usuario();
-				usuario.setIdUsuario(result.getInt("idUsuario"));
+				usuario.setIdUsuario(result.getInt("id_usuario"));
 				usuario.setNombre(result.getString("nombre"));
 				usuario.setClave(result.getString("clave"));
 				usuario.setTipo(result.getString("tipo"));
@@ -184,7 +184,7 @@ public class UsuarioService {
 			usuarios.clear();
 			while(result.next()) {
 				usuario = new Usuario();
-				usuario.setIdUsuario(result.getInt("idUsuario"));
+				usuario.setIdUsuario(result.getInt("id_usuario"));
 				usuario.setNombre(result.getString("nombre"));
 				usuario.setClave(result.getString("clave"));
 				usuario.setTipo(result.getString("tipo"));

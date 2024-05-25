@@ -1,13 +1,13 @@
-package src.main.java.com.engineerds.stockmaster.service;
+package main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import src.main.java.com.engineerds.stockmaster.model.Categoria;
-import src.main.java.com.engineerds.stockmaster.repository.CategoriaRepositorio;
-import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import main.java.com.engineerds.stockmaster.model.Categoria;
+import main.java.com.engineerds.stockmaster.repository.CategoriaRepositorio;
+import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
 
 
 public class CategoriaService {
@@ -28,7 +28,7 @@ public class CategoriaService {
 			categorias.clear();
 			while(result.next()) {
 				categoria = new Categoria();
-				categoria.setIdCategoria(result.getInt("idCategoria"));
+				categoria.setIdCategoria(result.getInt("id_categoria"));
 				categoria.setNombre(result.getString("nombre"));
 				categoria.setDescripcion(result.getString("descripcion"));
 				categorias.add(categoria);
@@ -50,7 +50,7 @@ public class CategoriaService {
 			categorias.clear();		
 			while(result.next()) {
 				categoria = new Categoria();
-				categoria.setIdCategoria(result.getInt("idCategoria"));
+				categoria.setIdCategoria(result.getInt("id_categoria"));
 				categoria.setNombre(result.getString("nombre"));
 				categoria.setDescripcion(result.getString("descripcion"));
 				categorias.add(categoria);
@@ -71,7 +71,7 @@ public class CategoriaService {
 		try {
 			result.next();
 			categoria = new Categoria();
-			categoria.setIdCategoria(result.getInt("idCategoria"));
+			categoria.setIdCategoria(result.getInt("id_categoria"));
 			categoria.setNombre(result.getString("nombre"));
 			categoria.setDescripcion(result.getString("descripcion"));
 			return categoria;

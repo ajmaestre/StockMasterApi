@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.api.factura;
+package main.java.com.engineerds.stockmaster.api.factura;
 
 import com.sun.net.httpserver.HttpServer;
 

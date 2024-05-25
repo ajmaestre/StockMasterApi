@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.utilities;
+package main.java.com.engineerds.stockmaster.utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;

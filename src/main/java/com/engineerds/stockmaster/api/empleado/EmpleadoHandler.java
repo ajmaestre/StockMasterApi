@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.api.empleado;
+package main.java.com.engineerds.stockmaster.api.empleado;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 
-import src.main.java.com.engineerds.stockmaster.api.persona.PersonaHandler;
-import src.main.java.com.engineerds.stockmaster.model.Persona;
-import src.main.java.com.engineerds.stockmaster.service.PersonaService;
-import src.main.java.com.engineerds.stockmaster.utilities.ExtractParams;
+import main.java.com.engineerds.stockmaster.api.persona.PersonaHandler;
+import main.java.com.engineerds.stockmaster.model.Persona;
+import main.java.com.engineerds.stockmaster.service.PersonaService;
+import main.java.com.engineerds.stockmaster.utilities.ExtractParams;
 
 public class EmpleadoHandler extends PersonaHandler{
 

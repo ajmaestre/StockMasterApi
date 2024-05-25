@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.api.cliente;
+package main.java.com.engineerds.stockmaster.api.cliente;
 
 import com.sun.net.httpserver.HttpServer;
 

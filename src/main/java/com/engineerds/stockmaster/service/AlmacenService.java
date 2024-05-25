@@ -1,13 +1,13 @@
-package src.main.java.com.engineerds.stockmaster.service;
+package main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import src.main.java.com.engineerds.stockmaster.model.Almacen;
-import src.main.java.com.engineerds.stockmaster.repository.AlmacenRepositorio;
-import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import main.java.com.engineerds.stockmaster.model.Almacen;
+import main.java.com.engineerds.stockmaster.repository.AlmacenRepositorio;
+import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
 
 
 public class AlmacenService {
@@ -28,7 +28,7 @@ public class AlmacenService {
 			almacenes.clear();
 			while(result.next()) {
 				almacen = new Almacen();
-				almacen.setIdAlmacen(result.getInt("idAlmacen"));
+				almacen.setIdAlmacen(result.getInt("id_almacen"));
 				almacen.setNombre(result.getString("nombre"));
 				almacen.setDescripcion(result.getString("descripcion"));
 				almacen.setDireccion(result.getString("direccion"));
@@ -53,7 +53,7 @@ public class AlmacenService {
 			almacenes.clear();
 			while(result.next()) {
 				almacen = new Almacen();
-				almacen.setIdAlmacen(result.getInt("idAlmacen"));
+				almacen.setIdAlmacen(result.getInt("id_almacen"));
 				almacen.setNombre(result.getString("nombre"));
 				almacen.setDescripcion(result.getString("descripcion"));
 				almacen.setDireccion(result.getString("direccion"));
@@ -76,7 +76,7 @@ public class AlmacenService {
 		try {
 			result.next();
 			almacen = new Almacen();
-			almacen.setIdAlmacen(result.getInt("idAlmacen"));
+			almacen.setIdAlmacen(result.getInt("id_almacen"));
 			almacen.setNombre(result.getString("nombre"));
 			almacen.setDescripcion(result.getString("descripcion"));
 			almacen.setDireccion(result.getString("direccion"));

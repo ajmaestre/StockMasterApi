@@ -1,11 +1,11 @@
-package src.main.java.com.engineerds.stockmaster.repository;
+package main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import src.main.java.com.engineerds.stockmaster.model.Almacen;
+import main.java.com.engineerds.stockmaster.model.Almacen;
 
 public class AlmacenRepositorio extends BaseRepository<Almacen>{
 
@@ -32,7 +32,7 @@ public class AlmacenRepositorio extends BaseRepository<Almacen>{
 
 	@Override
 	public ResultSet Get(Connection conexion, String tabla, int id) {
-		String query = "SELECT * FROM " + tabla + " WHERE idAlmacen = " + id;
+		String query = "SELECT * FROM " + tabla + " WHERE id_almacen = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -91,7 +91,7 @@ public class AlmacenRepositorio extends BaseRepository<Almacen>{
 
 	@Override
 	public int Delete(Connection conexion, String tabla, int id) {
-		String query = "DELETE FROM " + tabla + " WHERE idAlmacen = " + id;
+		String query = "DELETE FROM " + tabla + " WHERE id_almacen = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -111,7 +111,7 @@ public class AlmacenRepositorio extends BaseRepository<Almacen>{
 						+ "descripcion = '" + data.getDescripcion() + "', "
 						+ "direccion = '" + data.getDireccion() + "', "
 								+ "telefono = '" + data.getTelefono() + "'"
-								+ " WHERE idAlmacen = " + id;
+								+ " WHERE id_almacen = " + id;
 		Statement stmt;
 		int result;
 		try {

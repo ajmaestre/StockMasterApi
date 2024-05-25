@@ -1,11 +1,11 @@
-package src.main.java.com.engineerds.stockmaster.repository;
+package main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import src.main.java.com.engineerds.stockmaster.model.Categoria;
+import main.java.com.engineerds.stockmaster.model.Categoria;
 
 public class CategoriaRepositorio extends BaseRepository<Categoria>{
 
@@ -26,7 +26,7 @@ public class CategoriaRepositorio extends BaseRepository<Categoria>{
 
 	@Override
 	public ResultSet Get(Connection conexion, String tabla, int id) {
-		String query = "SELECT * FROM " + tabla + " WHERE idCategoria = " + id;
+		String query = "SELECT * FROM " + tabla + " WHERE id_categoria = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -72,7 +72,7 @@ public class CategoriaRepositorio extends BaseRepository<Categoria>{
 
 	@Override
 	public int Delete(Connection conexion, String tabla, int id) {
-		String query = "DELETE FROM " + tabla + " WHERE idCategoria = " + id;
+		String query = "DELETE FROM " + tabla + " WHERE id_categoria = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -90,7 +90,7 @@ public class CategoriaRepositorio extends BaseRepository<Categoria>{
 		String query = "UPDATE " + tabla + " SET "+
 				"nombre = '" + data.getNombre() + "', "
 						+ "descripcion = '" + data.getDescripcion() + "'"
-								+ "WHERE idCategoria = " + id;
+								+ "WHERE id_categoria = " + id;
 		Statement stmt;
 		int result;
 		try {

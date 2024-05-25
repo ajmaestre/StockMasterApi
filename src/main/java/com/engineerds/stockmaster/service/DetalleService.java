@@ -1,15 +1,15 @@
-package src.main.java.com.engineerds.stockmaster.service;
+package main.java.com.engineerds.stockmaster.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import src.main.java.com.engineerds.stockmaster.model.Detalle;
-import src.main.java.com.engineerds.stockmaster.model.Factura;
-import src.main.java.com.engineerds.stockmaster.model.Producto;
-import src.main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
-import src.main.java.com.engineerds.stockmaster.repository.DetalleRepositorio;
+import main.java.com.engineerds.stockmaster.model.Detalle;
+import main.java.com.engineerds.stockmaster.model.Factura;
+import main.java.com.engineerds.stockmaster.model.Producto;
+import main.java.com.engineerds.stockmaster.repository.DatabaseConnection;
+import main.java.com.engineerds.stockmaster.repository.DetalleRepositorio;
 
 
 public class DetalleService {
@@ -36,7 +36,7 @@ public class DetalleService {
 				detalle = new Detalle();
 				factura = new Factura();
 				producto = new Producto();
-				detalle.setIdDetalle(result.getInt("idDetalle"));
+				detalle.setIdDetalle(result.getInt("id_detalle"));
 				detalle.setCantidad(result.getInt("cantidad"));
 				detalle.setPrecioUnitario(result.getDouble("precioUnitario"));
 				detalle.setPrecioTotal(result.getDouble("precioTotal"));
@@ -93,7 +93,7 @@ public class DetalleService {
 			detalle = new Detalle();
 			factura = new Factura();
 			producto = new Producto();
-			detalle.setIdDetalle(result.getInt("idDetalle"));
+			detalle.setIdDetalle(result.getInt("id_categoria"));
 			detalle.setCantidad(result.getInt("cantidad"));
 			detalle.setPrecioUnitario(result.getDouble("precioUnitario"));
 			detalle.setPrecioTotal(result.getDouble("precioTotal"));
@@ -170,7 +170,7 @@ public class DetalleService {
 			detalle = new Detalle();
 			factura = new Factura();
 			producto = new Producto();
-			detalle.setIdDetalle(result.getInt("idDetalle"));
+			detalle.setIdDetalle(result.getInt("id_categoria"));
 			detalle.setCantidad(result.getInt("cantidad"));
 			detalle.setPrecioUnitario(result.getDouble("precioUnitario"));
 			detalle.setPrecioTotal(result.getDouble("precioTotal"));

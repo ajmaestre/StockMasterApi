@@ -1,24 +1,24 @@
-package src.main.java.com.engineerds.stockmaster.repository;
+package main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import src.main.java.com.engineerds.stockmaster.model.Producto;
+import main.java.com.engineerds.stockmaster.model.Producto;
 
 public class ProductoRepositorio extends BaseRepository<Producto>{
 
 	@Override
 	public ResultSet GetAll(Connection conexion, String tabla) {
-		String query = "SELECT p.idProducto as 'producto.id', p.nombre as 'producto.nombre', "
-				+ "p.descripcion as 'producto.descripcion', p.precioUnitario as 'producto.precioUnitario', "
+		String query = "SELECT p.id_producto as 'producto.id', p.nombre as 'producto.nombre', "
+				+ "p.descripcion as 'producto.descripcion', p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad', "
-				+ "c.idCategoria as 'categoria.id', c.nombre as 'categoria.nombre', "
+				+ "c.id_categoria as 'categoria.id', c.nombre as 'categoria.nombre', "
 				+ "c.descripcion as 'categoria.descripcion' "
 				+ "FROM " + tabla + " AS p "
 				+ "INNER JOIN Categorias as c "
-				+ "ON p.idCategoria = c.idCategoria";
+				+ "ON p.id_categoria = c.id_categoria";
 		Statement stmt;
 		ResultSet result;
 		try {	 
@@ -39,15 +39,15 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 
 	@Override
 	public ResultSet Get(Connection conexion, String tabla, int id) {
-		String query = "SELECT p.idProducto as 'producto.id', p.nombre as 'producto.nombre', "
-				+ "p.descripcion as 'producto.descripcion', p.precioUnitario as 'producto.precioUnitario', "
+		String query = "SELECT p.id_producto as 'producto.id', p.nombre as 'producto.nombre', "
+				+ "p.descripcion as 'producto.descripcion', p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad', "
-				+ "c.idCategoria as 'categoria.id', c.nombre as 'categoria.nombre', "
+				+ "c.id_categoria as 'categoria.id', c.nombre as 'categoria.nombre', "
 				+ "c.descripcion as 'categoria.descripcion' "
 				+ "FROM " + tabla + " AS p "
 				+ "INNER JOIN Categorias as c "
-				+ "ON p.idCategoria = c.idCategoria "
-				+ "WHERE p.idCategoria = " + id;
+				+ "ON p.id_categoria = c.id_categoria "
+				+ "WHERE p.id_categoria = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -62,14 +62,14 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 
 	@Override
 	public ResultSet GetByName(Connection conexion, String tabla, String name) {
-		String query = "SELECT p.idProducto as 'producto.id', p.nombre as 'producto.nombre', "
-				+ "p.descripcion as 'producto.descripcion', p.precioUnitario as 'producto.precioUnitario', "
+		String query = "SELECT p.id_producto as 'producto.id', p.nombre as 'producto.nombre', "
+				+ "p.descripcion as 'producto.descripcion', p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad', "
-				+ "c.idCategoria as 'categoria.id', c.nombre as 'categoria.nombre', "
+				+ "c.id_categoria as 'categoria.id', c.nombre as 'categoria.nombre', "
 				+ "c.descripcion as 'categoria.descripcion' "
 				+ "FROM " + tabla + " AS p "
 				+ "INNER JOIN Categorias as c "
-				+ "ON p.idCategoria = c.idCategoria "
+				+ "ON p.id_categoria = c.id_categoria "
 				+ "WHERE p.nombre LIKE '%" + name + "%'";
 		Statement stmt;
 		ResultSet result;
@@ -91,7 +91,7 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 
 	@Override
 	public int Insert(Connection conexion, String tabla, Producto data) {
-		String query = "INSERT INTO " + tabla + " (nombre, descripcion, precioUnitario, cantidad, idCategoria) VALUES ('"+
+		String query = "INSERT INTO " + tabla + " (nombre, descripcion, precio_unitario, cantidad, id_categoria) VALUES ('"+
 				data.getNombre() + 
 				"', '" + 
 				data.getDescripcion() + 
@@ -116,7 +116,7 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 
 	@Override
 	public int Delete(Connection conexion, String tabla, int id) {
-		String query = "DELETE FROM " + tabla + " WHERE idProducto = " + id;
+		String query = "DELETE FROM " + tabla + " WHERE id_producto = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -134,10 +134,10 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 		String query = "UPDATE " + tabla + " SET "+
 				"nombre = '" + data.getNombre() + "', "
 						+ "descripcion = '" + data.getDescripcion() + "', "
-								+ "precioUnitario = " + data.getPrecioUnitario() + ", "
+								+ "precio_unitario = " + data.getPrecioUnitario() + ", "
 										+ "cantidad = " + data.getCantidad() + ", "
-												+ "idCategoria = " + data.getCategoria().getIdCategoria()
-								+ " WHERE idProducto = " + id;
+												+ "id_categoria = " + data.getCategoria().getIdCategoria()
+								+ " WHERE id_producto = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -166,15 +166,15 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 	}
 	
 	public ResultSet GetProductsByCategoria(Connection conexion, String tabla, int id) {	
-		String query = "SELECT p.idProducto as 'producto.id', p.nombre as 'producto.nombre', "
-				+ "p.descripcion as 'producto.descripcion', p.precioUnitario as 'producto.precioUnitario', "
+		String query = "SELECT p.id_producto as 'producto.id', p.nombre as 'producto.nombre', "
+				+ "p.descripcion as 'producto.descripcion', p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad', "
-				+ "c.idCategoria as 'categoria.id', c.nombre as 'categoria.nombre', "
+				+ "c.id_categoria as 'categoria.id', c.nombre as 'categoria.nombre', "
 				+ "c.descripcion as 'categoria.descripcion' "
 				+ "FROM " + tabla + " AS p "
 				+ "INNER JOIN Categorias as c "
-				+ "ON p.idCategoria = c.idCategoria "
-				+ "WHERE c.idCategoria = " + id;
+				+ "ON p.id_categoria = c.id_categoria "
+				+ "WHERE c.id_categoria = " + id;
 		Statement stmt;
 		ResultSet result;		
 		try {		
@@ -188,7 +188,7 @@ public class ProductoRepositorio extends BaseRepository<Producto>{
 	}
 	
 	public ResultSet Count(Connection conexion, String tabla, int id) {
-		String query = "SELECT cantidad FROM " + tabla + " WHERE idProducto = " + id;
+		String query = "SELECT cantidad FROM " + tabla + " WHERE id_producto = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {

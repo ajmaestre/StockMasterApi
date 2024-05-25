@@ -1,37 +1,37 @@
-package src.main.java.com.engineerds.stockmaster.repository;
+package main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import src.main.java.com.engineerds.stockmaster.model.Detalle;
+import main.java.com.engineerds.stockmaster.model.Detalle;
 
 public class DetalleRepositorio extends BaseRepository<Detalle>{
 
 	@Override
 	public ResultSet GetAll(Connection conexion, String tabla) {
 		String query = "SELECT "
-				+ "d.idDetalle as 'detalle.id', "
+				+ "d.id_detalle as 'detalle.id', "
 				+ "d.cantidad as 'detalle.cantidad', "
-				+ "d.precioUnitario as 'detalle.precioUnitario', "
-				+ "d.precioTotal as 'detalle.precioTotal', "
-				+ "f.idFactura as 'factura.id', " 
+				+ "d.precio_unitario as 'detalle.precioUnitario', "
+				+ "d.precio_total as 'detalle.precioTotal', "
+				+ "f.id_factura as 'factura.id', " 
 				+ "f.fecha as 'factura.fecha', "
 				+ "f.transaccion as 'factura.transaccion', "
 				+ "f.estado as 'factura.estado', "
 				+ "f.subtotal as 'factura.subtotal', "
 				+ "f.impuesto as 'factura.impuesto', "
 				+ "f.total as 'factura.total', "
-				+ "f.cantidadTotal as 'factura.cantidadTotal', "
-				+ "p.idProducto as 'producto.id', "
+				+ "f.cantidad_total as 'factura.cantidadTotal', "
+				+ "p.id_producto as 'producto.id', "
 				+ "p.nombre as 'producto.nombre', "
 				+ "p.descripcion as 'producto.descripcion', "
-				+ "p.precioUnitario as 'producto.precioUnitario', "
+				+ "p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad' "
 				+ "FROM " + tabla + " AS d "
-				+ "INNER JOIN Facturas AS f ON d.idFactura = f.idFactura "
-				+ "INNER JOIN Productos AS p ON d.idProducto = p.idProducto"
+				+ "INNER JOIN Facturas AS f ON d.id_factura = f.id_factura "
+				+ "INNER JOIN Productos AS p ON d.id_producto = p.id_producto"
 				+ "";
 		Statement stmt;
 		ResultSet result;
@@ -54,27 +54,27 @@ public class DetalleRepositorio extends BaseRepository<Detalle>{
 	@Override
 	public ResultSet Get(Connection conexion, String tabla, int id) {
 		String query = "SELECT "
-				+ "d.idDetalle as 'detalle.id', "
+				+ "d.id_detalle as 'detalle.id', "
 				+ "d.cantidad as 'detalle.cantidad', "
-				+ "d.precioUnitario as 'detalle.precioUnitario', "
-				+ "d.precioTotal as 'detalle.precioTotal', "
-				+ "f.idFactura as 'factura.id', "
+				+ "d.precio_unitario as 'detalle.precioUnitario', "
+				+ "d.precio_total as 'detalle.precioTotal', "
+				+ "f.id_factura as 'factura.id', " 
 				+ "f.fecha as 'factura.fecha', "
 				+ "f.transaccion as 'factura.transaccion', "
 				+ "f.estado as 'factura.estado', "
 				+ "f.subtotal as 'factura.subtotal', "
 				+ "f.impuesto as 'factura.impuesto', "
 				+ "f.total as 'factura.total', "
-				+ "f.cantidadTotal as 'factura.cantidadTotal', "
-				+ "p.idProducto as 'producto.id', "
+				+ "f.cantidad_total as 'factura.cantidadTotal', "
+				+ "p.id_producto as 'producto.id', "
 				+ "p.nombre as 'producto.nombre', "
 				+ "p.descripcion as 'producto.descripcion', "
-				+ "p.precioUnitario as 'producto.precioUnitario', "
+				+ "p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad' "
 				+ "FROM " + tabla + " AS d "
-				+ "INNER JOIN Facturas AS f ON d.idFactura = f.idFactura "
-				+ "INNER JOIN Productos AS p ON d.idProducto = p.idProducto"
-				+ " WHERE idDetalle = " + id;
+				+ "INNER JOIN Facturas AS f ON d.id_factura = f.id_factura "
+				+ "INNER JOIN Productos AS p ON d.id_producto = p.id_producto"
+				+ " WHERE id_detalle = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -101,7 +101,7 @@ public class DetalleRepositorio extends BaseRepository<Detalle>{
 
 	@Override
 	public int Insert(Connection conexion, String tabla, Detalle data) {
-		String query = "INSERT INTO " + tabla + " (cantidad, precioUnitario, precioTotal, idFactura, idProducto) VALUES ('"+
+		String query = "INSERT INTO " + tabla + " (cantidad, precio_unitario, precio_total, id_factura, id_producto) VALUES ('"+
 				data.getCantidad() + 
 				"', " + 
 				data.getPrecioUnitario() + 
@@ -143,11 +143,11 @@ public class DetalleRepositorio extends BaseRepository<Detalle>{
 	public int Update(Connection conexion, String tabla, Detalle data, int id) {
 		String query = "UPDATE " + tabla + " SET "+
 				"cantidad = '" + data.getCantidad() + "', "
-						+ "precioUnitario = " + data.getPrecioUnitario() + ", "
-								+ "precioTotal = " + data.getPrecioTotal() + ", "
-								+ "idFactura = " + data.getFactura().getIdFactura() + ", "
-										+ "idProducto = " + data.getProducto().getIdProducto()
-								+ " WHERE idDetalle = " + id;
+						+ "precio_unitario = " + data.getPrecioUnitario() + ", "
+								+ "precio_total = " + data.getPrecioTotal() + ", "
+								+ "id_factura = " + data.getFactura().getIdFactura() + ", "
+										+ "id_producto = " + data.getProducto().getIdProducto()
+								+ " WHERE id_detalle = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -177,27 +177,27 @@ public class DetalleRepositorio extends BaseRepository<Detalle>{
 	
 	public ResultSet GetDetallesByCliente(Connection conexion, String tabla, int id) {
 		String query = "SELECT "
-				+ "d.idDetalle as 'detalle.id', "
+				+ "d.id_detalle as 'detalle.id', "
 				+ "d.cantidad as 'detalle.cantidad', "
-				+ "d.precioUnitario as 'detalle.precioUnitario', "
-				+ "d.precioTotal as 'detalle.precioTotal', "
-				+ "f.idFactura as 'factura.id', "
+				+ "d.precio_unitario as 'detalle.precioUnitario', "
+				+ "d.precio_total as 'detalle.precioTotal', "
+				+ "f.id_factura as 'factura.id', " 
 				+ "f.fecha as 'factura.fecha', "
 				+ "f.transaccion as 'factura.transaccion', "
 				+ "f.estado as 'factura.estado', "
 				+ "f.subtotal as 'factura.subtotal', "
 				+ "f.impuesto as 'factura.impuesto', "
 				+ "f.total as 'factura.total', "
-				+ "f.cantidadTotal as 'factura.cantidadTotal', "
-				+ "p.idProducto as 'producto.id', "
+				+ "f.cantidad_total as 'factura.cantidadTotal', "
+				+ "p.id_producto as 'producto.id', "
 				+ "p.nombre as 'producto.nombre', "
 				+ "p.descripcion as 'producto.descripcion', "
-				+ "p.precioUnitario as 'producto.precioUnitario', "
+				+ "p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad' "
 				+ "FROM " + tabla + " AS d "
-				+ "INNER JOIN Facturas AS f ON d.idFactura = f.idFactura "
-				+ "INNER JOIN Productos AS p ON d.idProducto = p.idProducto"
-				+ " WHERE idCliente = " + id;
+				+ "INNER JOIN Facturas AS f ON d.id_factura = f.id_factura "
+				+ "INNER JOIN Productos AS p ON d.id_producto = p.id_producto"
+				+ " WHERE id_cliente = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -212,28 +212,27 @@ public class DetalleRepositorio extends BaseRepository<Detalle>{
 	
 	public ResultSet GetDetallesByFactura(Connection conexion, String tabla, int id){
 		String query = "SELECT "
-				+ "d.idDetalle as 'detalle.id', "
+				+ "d.id_detalle as 'detalle.id', "
 				+ "d.cantidad as 'detalle.cantidad', "
-				+ "d.precioUnitario as 'detalle.precioUnitario', "
-				+ "d.precioTotal as 'detalle.precioTotal', "
-				+ "d.idFactura as 'detalle.idFactura', "
-				+ "f.idFactura as 'factura.id', "
+				+ "d.precio_unitario as 'detalle.precioUnitario', "
+				+ "d.precio_total as 'detalle.precioTotal', "
+				+ "f.id_factura as 'factura.id', " 
 				+ "f.fecha as 'factura.fecha', "
 				+ "f.transaccion as 'factura.transaccion', "
 				+ "f.estado as 'factura.estado', "
 				+ "f.subtotal as 'factura.subtotal', "
 				+ "f.impuesto as 'factura.impuesto', "
 				+ "f.total as 'factura.total', "
-				+ "f.cantidadTotal as 'factura.cantidadTotal', "
-				+ "p.idProducto as 'producto.id', "
+				+ "f.cantidad_total as 'factura.cantidadTotal', "
+				+ "p.id_producto as 'producto.id', "
 				+ "p.nombre as 'producto.nombre', "
 				+ "p.descripcion as 'producto.descripcion', "
-				+ "p.precioUnitario as 'producto.precioUnitario', "
+				+ "p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad' "
 				+ "FROM " + tabla + " AS d "
-				+ "INNER JOIN Facturas AS f ON d.idFactura = f.idFactura "
-				+ "INNER JOIN Productos AS p ON d.idProducto = p.idProducto"
-				+ " WHERE d.idFactura = " + id;
+				+ "INNER JOIN Facturas AS f ON d.id_factura = f.id_factura "
+				+ "INNER JOIN Productos AS p ON d.id_producto = p.id_producto"
+				+ " WHERE d.id_factura = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -248,27 +247,27 @@ public class DetalleRepositorio extends BaseRepository<Detalle>{
 	
 	public ResultSet GetLastDetalle(Connection conexion, String tabla){	
 		String query = "SELECT "
-				+ "d.idDetalle as 'detalle.id', "
+				+ "d.id_detalle as 'detalle.id', "
 				+ "d.cantidad as 'detalle.cantidad', "
-				+ "d.precioUnitario as 'detalle.precioUnitario', "
-				+ "d.precioTotal as 'detalle.precioTotal', "
-				+ "f.idFactura as 'factura.id', "
+				+ "d.precio_unitario as 'detalle.precioUnitario', "
+				+ "d.precio_total as 'detalle.precioTotal', "
+				+ "f.id_factura as 'factura.id', " 
 				+ "f.fecha as 'factura.fecha', "
 				+ "f.transaccion as 'factura.transaccion', "
 				+ "f.estado as 'factura.estado', "
 				+ "f.subtotal as 'factura.subtotal', "
 				+ "f.impuesto as 'factura.impuesto', "
 				+ "f.total as 'factura.total', "
-				+ "f.cantidadTotal as 'factura.cantidadTotal', "
-				+ "p.idProducto as 'producto.id', "
+				+ "f.cantidad_total as 'factura.cantidadTotal', "
+				+ "p.id_producto as 'producto.id', "
 				+ "p.nombre as 'producto.nombre', "
 				+ "p.descripcion as 'producto.descripcion', "
-				+ "p.precioUnitario as 'producto.precioUnitario', "
+				+ "p.precio_unitario as 'producto.precioUnitario', "
 				+ "p.cantidad as 'producto.cantidad' "
 				+ "FROM " + tabla + " AS d "
-				+ "INNER JOIN Facturas AS f ON d.idFactura = f.idFactura "
-				+ "INNER JOIN Productos AS p ON d.idProducto = p.idProducto"
-				+ " ORDER BY idDetalle DESC LIMIT 1";
+				+ "INNER JOIN Facturas AS f ON d.id_factura = f.id_factura "
+				+ "INNER JOIN Productos AS p ON d.id_producto = p.id_producto"
+				+ " ORDER BY id_detalle DESC LIMIT 1";
 		Statement stmt;
 		ResultSet result;
 		try {

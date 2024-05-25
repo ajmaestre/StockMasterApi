@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.model;
+package main.java.com.engineerds.stockmaster.model;
 
 public class Persona {
 

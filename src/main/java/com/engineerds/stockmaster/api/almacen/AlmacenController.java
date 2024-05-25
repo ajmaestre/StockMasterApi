@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.api.almacen;
+package main.java.com.engineerds.stockmaster.api.almacen;
 
 import com.sun.net.httpserver.HttpServer;
 

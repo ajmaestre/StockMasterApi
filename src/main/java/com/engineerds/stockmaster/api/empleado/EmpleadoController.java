@@ -1,4 +1,4 @@
-package src.main.java.com.engineerds.stockmaster.api.empleado;
+package main.java.com.engineerds.stockmaster.api.empleado;
 
 import com.sun.net.httpserver.HttpServer;
 

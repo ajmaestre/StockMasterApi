@@ -1,11 +1,11 @@
-package src.main.java.com.engineerds.stockmaster.repository;
+package main.java.com.engineerds.stockmaster.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import src.main.java.com.engineerds.stockmaster.model.Persona;
+import main.java.com.engineerds.stockmaster.model.Persona;
 
 public class PersonaRepositorio extends BaseRepository<Persona>{
 
@@ -26,7 +26,7 @@ public class PersonaRepositorio extends BaseRepository<Persona>{
 
 	@Override
 	public ResultSet Get(Connection conexion, String tabla, int id) {
-		String query = "SELECT * FROM " + tabla + " WHERE idPersona = " + id;
+		String query = "SELECT * FROM " + tabla + " WHERE id_persona = " + id;
 		Statement stmt;
 		ResultSet result;
 		try {
@@ -81,7 +81,7 @@ public class PersonaRepositorio extends BaseRepository<Persona>{
 
 	@Override
 	public int Delete(Connection conexion, String tabla, int id) {
-		String query = "DELETE FROM " + tabla + " WHERE idPersona = " + id;
+		String query = "DELETE FROM " + tabla + " WHERE id_persona = " + id;
 		Statement stmt;
 		int result;
 		try {
@@ -102,7 +102,7 @@ public class PersonaRepositorio extends BaseRepository<Persona>{
 								+ "telefono = '" + data.getTelefono() + "', "
 										+ "email = '" + data.getEmail() + "', "
 												+ "tipo = '" + data.getTipo() + "'"
-								+ " WHERE idPersona = " + id;
+								+ " WHERE id_persona = " + id;
 		Statement stmt;
 		int result;
 		try {
